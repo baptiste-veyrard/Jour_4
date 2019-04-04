@@ -1,41 +1,51 @@
-def pyramidewtf
-	puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ? (choisi un nombre impair)"
 
-	n = gets.chomp.to_i
-	e = " "
-	p = "#"
+def pyramide
+puts "Salut, bienvenue dans ma super pyramide! Combien d'étages veux-tu? (nombre impaire)"
+print "Nombre étages: "
 
+etage = gets.chomp.to_i
+  while etage%2==0
+    puts "nombre pair, recommencez"
+    print "Nombre étages: "
+    etage = gets.chomp.to_i
+  end
 
-while n%2==0
-	puts "C'est un nombre pair, recommencez svp"
-	print "Combien d'étages veux-tu ? (choisi un nombre impair) "
-	n = gets.chomp.to_i
+puts "Voici la pyramide : "
+
+etage1 = (etage + 1) / 2
+etage2 = (etage - 1) / 2
+
+  (etage1).times do |i|
+     espace = ""
+     diez = "#"
+
+      (etage1-i-1).times do
+         espace += " "
+       end
+
+       nbdiez = i
+       nbdiez.times do
+       diez +="##"
+        end
+
+     print "#{espace}"
+     puts "#{diez}"
+   end
+
+  (etage2).times do |i|
+     espace = ""
+     diez = "#"
+
+        (i+1).times do
+         espace += " "
+        end
+
+       (etage2-i-1).times do
+       diez += "##"
+      end
+     print "#{espace}"
+     puts "#{diez}"
+   end
 end
 
-	if (n < 25) && (n > 1)
-
-		n.times do |i|
-
-			if i <= (n/2)
-				print e * n
-				puts  p * (i*2 +1)
-
-			elsif i > (n/2)
-				print e * (i + 1)
-				puts  p * (n*2 -1)
-			end
-		n = n -1
-		end
-
-	end
-
-end
-
-pyramidewtf
-
-
-
-
-
-
-
+pyramide

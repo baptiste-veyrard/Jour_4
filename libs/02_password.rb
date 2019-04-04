@@ -26,35 +26,49 @@ def perform
 		puts "Mauvais mot de passe, veuillez réésayer:"
 		print "--->"
 		mdp2 = gets.chomp
-		end 
+		end
 	welcomeScreen
 end
 
 def pyramidewtf
 
-	n = 21
-	e = " "
-	p = "#"
+  etage = 71
+	puts "Voici la pyramide : "
 
-while n%2==0
-	puts "C'est un nombre pair, recommencez svp"
-	print "Combien d'étages veux-tu ? (choisi un nombre impair) "
-	n = gets.chomp.to_i
-end
+	etage1 = (etage + 1) / 2
+	etage2 = (etage - 1) / 2
 
-	if (n < 25) && (n > 1)
-		n.times do |i|
-			if i <= (n/2)
-				print e * n
-				puts  p * (i*2 +1)
+	  (etage1).times do |i|
+	     espace = ""
+	     diez = "#"
 
-			elsif i > (n/2)
-				print e * (i + 1)
-				puts  p * (n*2 -1)
-			end
-		n = n -1
-		end
-	end
+	      (etage1-i-1).times do
+	         espace += " "
+	       end
+
+	       nbdiez = i
+	       nbdiez.times do
+	       diez +="##"
+	        end
+
+	     print "#{espace}"
+	     puts "#{diez}"
+	   end
+
+	  (etage2).times do |i|
+	     espace = ""
+	     diez = "#"
+
+	        (i+1).times do
+	         espace += " "
+	        end
+
+	       (etage2-i-1).times do
+	       diez += "##"
+	      end
+	     print "#{espace}"
+	     puts "#{diez}"
+	   end
 end
 
 perform
